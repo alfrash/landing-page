@@ -17,10 +17,11 @@
  * Define Global Variables
  * 
 */
+
 const sections = document.querySelector('.sections');
 const ul = document.querySelector('#navbar__list');
 const fragment = document.createDocumentFragment();
-let allSections = [ ...sections.children];
+let allSections = [...sections.children];
 
 
 /**
@@ -30,8 +31,8 @@ let allSections = [ ...sections.children];
 */
 
 
-function selectSections(sec){
-    allSections.forEach(remover =>{
+function selectSections(sec) {
+    allSections.forEach(remover => {
         remover.classList.remove('your-active-class')
     })
     sec.classList.add('your-active-class');
@@ -46,24 +47,25 @@ function selectSections(sec){
 */
 
 // build the nav
-function createNavBar(){
+function createNavBar() {
     allSections.forEach(element => {
         const dataNav = element.getAttribute('data-nav');
         const newLi = document.createElement('li');
         const newLink = document.createElement('a');
         const text = document.createTextNode(dataNav);
-        
-        newLink.addEventListener('click', ()=>{
-            element.scrollIntoView({behavior: 'smooth'});
+
+        newLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            element.scrollIntoView({ behavior: 'smooth' });
         })
-    
-        newLink.appendChild(text); 
+
+        newLink.appendChild(text);
         newLink.style.color = 'black'
         newLi.appendChild(newLink)
         fragment.appendChild(newLi)
-    
+
     });
-    
+
     ul.appendChild(fragment)
 }
 
@@ -72,16 +74,17 @@ function createNavBar(){
 
 
 // Scroll to anchor ID using scrollTO event
-function scrolling (){
-    window.addEventListener('scroll', ()=>{ 
+function scrolling() {
+    window.addEventListener('scroll', (event) => {
+        //event.preventDefault();
         allSections.forEach(sec => {
             const rect = sec.getBoundingClientRect();
-            if (rect.top >= -50 && rect.top <= 200){
+            if (rect.top >= -50 && rect.top <= 200) {
                 selectSections(sec)
                 selectFromNavMenu(sec)
             }
         })
-        
+
     });
 }
 
@@ -94,12 +97,12 @@ function scrolling (){
 // Build menu 
 
 // Scroll to section on link click
-function selectFromNavMenu(sec){
+function selectFromNavMenu(sec) {
     const allLinks = document.querySelectorAll('a')
-    allLinks.forEach(link =>{
-        if (sec.getAttribute('data-nav') == link.textContent){
+    allLinks.forEach(link => {
+        if (sec.getAttribute('data-nav') == link.textContent) {
             link.classList.add('nav-item-active')
-        }else{
+        } else {
             link.classList.remove('nav-item-active')
         }
     })
@@ -107,9 +110,9 @@ function selectFromNavMenu(sec){
 
 // Set sections as active
 
-function init(){
+function init() {
     createNavBar()
-    scrolling ()
+    scrolling()
 }
 
 init()
@@ -118,18 +121,18 @@ init()
 const btn = document.getElementById("btn");
 
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-  if (document.documentElement.scrollTop > 300) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
+    if (document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
 }
 
 
 function topFunction() {
-  document.body.scrollTop = 0; 
-  document.documentElement.scrollTop = 0; 
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }

@@ -2,12 +2,18 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+## what is this project about
+exercise frontend skills
 
-## Instructions
+## what languages have you used in this project
+Using `HTML`, `CSS`, and `JavaScript` with `DOM` exercise
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## what resources have you used
+1- https://www.w3schools.com
+2- https://developer.mozilla.org/en-US/docs/Web/Events
+3- https://classroom.udacity.com
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## what have you learned during the implementation of this project
+1- modify HTML and CSS
+2- JavaScript functions 
+3- most important searching for the code on `w3schools` and `MDN`
